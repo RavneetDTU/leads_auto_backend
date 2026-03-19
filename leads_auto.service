@@ -1,0 +1,16 @@
+[Unit]
+Description=Leads Auto FastAPI Backend
+After=network.target
+
+[Service]
+Type=simple
+User=rpsoftwarelab
+Group=rpsoftwarelab
+WorkingDirectory=/home/rpsoftwarelab/Documents/2026_Projects/leads_auto
+Environment="PATH=/home/rpsoftwarelab/Documents/2026_Projects/leads_auto/venv/bin"
+ExecStart=/home/rpsoftwarelab/Documents/2026_Projects/leads_auto/venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 5012
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
