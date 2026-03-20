@@ -2,11 +2,8 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from app.config import settings
 
-# Construct database URL
-# Assuming settings has DATABASE_URL, or constructing it from parts
-# If not in settings, we might need to update config.py or Add it here
-# For now, I'll use the hardcoded one I setup, but ideally it should be in env
-DATABASE_URL = "postgresql+asyncpg://leads_user:leads_password@localhost/leads_auto_db"
+# Use DATABASE_URL from settings
+DATABASE_URL = settings.DATABASE_URL
 
 engine = create_async_engine(DATABASE_URL, echo=False)
 
